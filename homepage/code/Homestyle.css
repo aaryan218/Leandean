@@ -1,0 +1,523 @@
+/* ======================================================
+   BASIC RESET + PAGE SETTINGS
+====================================================== */
+
+* {
+  box-sizing: border-box; /* Makes width/padding easier to manage */
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, Arial, sans-serif;
+  background: linear-gradient(180deg, #f8fbff, #ffffff);
+  color: #071129;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.4;
+}
+
+/* Container used across the site */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+
+/* ======================================================
+   HEADER SECTION
+====================================================== */
+
+.site-header {
+  position: sticky; /* Makes header stay on top when scrolling */
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px); 
+  border-bottom: 1px solid rgba(9,30,66,0.04);
+}
+
+/* Navigation bar layout */
+.nav {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo + brand */
+.brand {
+  text-decoration: none;
+  color: #2563eb; /* accent */
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Top navigation menu */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #071129;
+  font-weight: 600;
+}
+
+.main-nav a.muted {
+  color: #64748b;
+  font-weight: 500;
+}
+
+
+/* ======================================================
+   BUTTONS (Reused Throughout)
+====================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+}
+
+/* Solid blue button */
+/* .btn-primary {
+  background: linear-gradient(90deg, #2563eb, #06b6d4);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(9,30,66,0.06);
+} */
+
+/* Transparent button */
+.btn-ghost,.btn-primary{
+  background: transparent;
+  color: #071129;
+  border: 1px solid rgba(9,30,66,0.06);
+  transition: background;
+}
+.btn-ghost:hover{
+  background: linear-gradient(90deg, #2563eb, #06b6d4);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(9,30,66,0.06);
+}
+.btn-primary:hover{
+  background: linear-gradient(90deg, #2563eb, #06b6d4);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(9,30,66,0.06);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px dashed rgba(9,30,66,0.06);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+
+/* ======================================================
+   HERO SECTION
+====================================================== */
+
+.hero {
+  padding: 56px 0;
+}
+
+/* 2-column layout: text + terminal */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 460px;
+  gap: 32px;
+}
+
+/* Title */
+.hero-left h1 {
+  font-size: 38px;
+  margin: 0 0 14px 0;
+}
+
+/* Subtext */
+.lead {
+  color: #64748b;
+  margin-bottom: 18px;
+  font-size: 16px;
+  max-width: 620px;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.hero-ctas .large {
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 15px;
+}
+
+/* Trust badge text */
+.trust-list {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+  margin-top: 22px;
+  padding: 0;
+  color: #64748b;
+  font-weight: 700;
+}
+
+
+/* ======================================================
+   TERMINAL MOCKUP (Right Side UI)
+====================================================== */
+
+.mock-terminal {
+  background: linear-gradient(180deg, #ffffff, #f8fbff);
+  border-radius: 14px;
+  border: 1px solid rgba(9,30,66,0.03);
+  box-shadow: 0 12px 40px rgba(9,30,66,0.08);
+  overflow: hidden;
+}
+
+/* Three dots like macOS */
+.terminal-top {
+  padding: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot.red { background: #ef4444; }
+.dot.amber { background: #f59e0b; }
+.dot.green { background: #10b981; }
+
+/* Inside terminal */
+.terminal-body {
+  padding: 18px;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.small {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.value {
+  font-size: 18px;
+  font-weight: 800;
+  margin-top: 6px;
+}
+
+/* Progress bar */
+.progress {
+  height: 8px;
+  background: rgba(9,30,66,0.05);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress .bar {
+  height: 100%;
+  background: linear-gradient(90deg, #2563eb, #06b6d4);
+}
+
+/* Transaction badge */
+.txn {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  align-items: center;
+}
+
+.badge {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.badge.success {
+  background: rgba(16,185,129,0.12);
+  color: #059669;
+}
+
+/* Small cards below */
+.cards-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.mini-card {
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(9,30,66,0.03);
+  box-shadow: 0 6px 18px rgba(9,30,66,0.06);
+  min-width: 140px;
+}
+
+
+/* ======================================================
+   FEATURES SECTION
+====================================================== */
+
+.features {
+  padding: 48px 24px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.feature {
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(9,30,66,0.03);
+  box-shadow: 0 6px 18px rgba(9,30,66,0.06);
+}
+
+.feature h3 {
+  margin: 10px 0 6px;
+}
+
+.feature p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.feature-icon {
+  color: #2563eb;
+}
+
+
+/* ======================================================
+   PRICING SECTION
+====================================================== */
+
+.pricing {
+  padding: 48px 0;
+  background: linear-gradient(180deg, #fff, #fbfcff);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.price-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(9,30,66,0.03);
+  box-shadow: 0 6px 18px rgba(9,30,66,0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.price-card.popular {
+  border: 2px solid rgba(37,99,235,0.12);
+  transform: translateY(-8px);
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.price-features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: #64748b;
+}
+
+.price-features li {
+  margin: 8px 0;
+}
+/* .btn{
+
+} */
+
+
+/* ======================================================
+   DEVELOPERS SECTION
+====================================================== */
+
+.devs {
+  padding: 48px 24px;
+}
+
+.devs-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 24px;
+  align-items: center;
+}
+
+/* Code block */
+.code-sample {
+  background: #0f1724;
+  color: #e6eef8;
+  padding: 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  overflow: auto;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+}
+
+
+/* ======================================================
+   TESTIMONIALS
+====================================================== */
+
+.testimonials {
+  padding: 48px 24px;
+}
+
+.test-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.test-card {
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(9,30,66,0.06);
+}
+
+.test-card blockquote {
+  margin: 0 0 12px;
+  font-style: italic;
+}
+
+.test-card figcaption {
+  font-size: 13px;
+  color: #64748b;
+}
+
+
+/* ======================================================
+   FOOTER
+====================================================== */
+
+.site-footer {
+  padding: 36px 0 18px;
+  background: linear-gradient(180deg, #fbfdff, #ffffff);
+  border-top: 1px solid rgba(9,30,66,0.04);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 18px;
+}
+
+.footer-brand .logo {
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+}
+
+.links ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+.links a {
+  color: #64748b;
+  text-decoration: none;
+  margin: 8px 0;
+  display: block;
+  font-size: 14px;
+}
+
+address {
+  font-style: normal;
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* Copyright */
+.copyright {
+  padding-top: 6px;
+  border-top: 1px dashed rgba(9,30,66,0.03);
+  margin-top: 18px;
+  padding-bottom: 18px;
+}
+
+
+/* ======================================================
+   RESPONSIVE DESIGN (MOBILE)
+====================================================== */
+
+@media (max-width: 1000px) {
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .devs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .test-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-nav { display: none; }
+  
+  .hero-left h1 {
+    font-size: 26px;
+  }
+
+  .mock-terminal {
+    margin-top: 14px;
+  }
+}
